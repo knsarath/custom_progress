@@ -2,13 +2,14 @@ package com.shimmer.customprogress;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -33,6 +34,10 @@ public class CustomProgressSpinner extends FrameLayout {
         super(context);
         mIconRes = iConResId;
         init();
+    }
+
+    public void done() {
+        mProgressBar.getIndeterminateDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
     }
 
     private void init() {
